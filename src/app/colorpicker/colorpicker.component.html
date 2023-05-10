@@ -1,0 +1,16 @@
+<p>colorpicker works!</p>
+<input type="range" min="0" max="255" [(ngModel)]="currentpatch.r"> {{currentpatch.r}}<br>
+<input type="range" min="0" max="255" [(ngModel)]="currentpatch.g">{{currentpatch.g}}<br>
+<input type="range" min="0" max="255" [(ngModel)]="currentpatch.b">{{currentpatch.b}}<br>
+<input type="range" min="0" max="1" step="0.01" [(ngModel)]="currentpatch.a">{{currentpatch.a}}<br>
+<input type="text" [(ngModel)]="currentpatch.name" [placeholder]="colorname"><br>
+<input type="button" [value]="submitPrompt" [disabled]="!currentpatch.name" (click)="onAddColorpatch()">
+<div class="colorbox"[style.backgroundColor]="currentpatch.rgba"></div>
+
+
+<div class="thumbcontainer" *ngIf="patchArray">
+    <div class="thumbbackground" *ngFor="let patch of patchArray">
+            <div  class="thumb" [style.backgroundColor]="patch.rgba" [title]="patch.name">{{patch.name}}</div>
+    </div>
+</div>
+
